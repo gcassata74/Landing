@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#101310">
+    <meta name="theme-color" content="#202032">
     <meta name="description" content="Giuseppe Cassata is a senior full-stack and platform engineer building Java, Spring, Angular and Kubernetes systems.">
     <title>Giuseppe Cassata — Senior Software & Platform Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,26 +66,35 @@
         <div class="section-wrap">
           <div class="section-heading"><div><div class="section-kicker"><span>02</span> / SELECTED WORK</div><h2>Engineering in context.</h2></div><p>Practical changes to systems, security and delivery workflows.</p></div>
           <div class="work-grid">
-            <article class="work-card work-card-wide">
+            <article class="work-card work-card-wide migration-case">
               <div class="card-top"><span class="card-index">01 / IDENTITY PLATFORM</span><span class="card-date">ERICSSON · 2015—2021</span></div>
-              <h3>Making legacy identity<br>fit Kubernetes.</h3>
-              <p class="card-intro">Adapted ForgeRock OpenAM 13.0.0, built for a site-based deployment model, for a repeatable container environment.</p>
-              <div class="architecture" aria-label="OpenAM and external OpenDJ configuration service architecture">
-                <div class="arch-box arch-openam"><span class="arch-label">IDENTITY</span><strong>OpenAM 13.0.0</strong><small>Containerized · multi-replica</small></div>
-                <div class="arch-link"><span>config</span><i></i></div>
-                <div class="arch-box arch-opendj"><span class="arch-label">CONFIGURATION STORE</span><strong>OpenDJ</strong><small>Externalized · StatefulSet</small></div>
+              <h3>From JBoss monolith<br>to horizontally scalable IAM.</h3>
+              <p class="card-intro">Reworked ForgeRock OpenAM 13.0.0 for Kubernetes. OpenAM stayed the identity service; its runtime became containerized and scalable, while OpenDJ became an external configuration service.</p>
+              <div class="migration-visual" role="img" aria-label="OpenAM migrated from a JBoss monolith to horizontally scalable Kubernetes pods, with OpenDJ externalized in a separate replicated StatefulSet as the configuration store">
+                <div class="migration-before">
+                  <div class="diagram-kicker"><span>01</span> BEFORE · COUPLED RUNTIME</div>
+                  <div class="jboss-shell"><span class="shell-label">JBOSS APPLICATION SERVER</span><div class="legacy-openam"><span class="service-mark">IAM</span><div><strong>OpenAM 13.0.0</strong><small>Site-based deployment</small></div></div></div><div class="legacy-store"><span>OpenDJ · configuration store</span><span class="coupled-tag">TIGHTLY COUPLED</span></div>
+                  <p class="diagram-note">One monolithic deployment · limited horizontal scale</p>
+                </div>
+                <div class="migration-steps"><div class="steps-line"></div><span class="diagram-kicker">RE-ARCHITECT</span><div class="step-chip"><b>01</b><span>Remove site dependency</span></div><div class="step-chip"><b>02</b><span>Externalize OpenDJ</span></div><div class="step-chip"><b>03</b><span>Containerize OpenAM</span></div><div class="step-arrow" aria-hidden="true">→</div></div>
+                <div class="migration-after">
+                  <div class="diagram-kicker"><span>02</span> AFTER · CLOUD-ORIENTED</div>
+                  <div class="kube-shell"><div class="kube-heading"><span>KUBERNETES</span><span class="scale-indicator"><i></i> SCALE OUT</span></div><div class="iam-deployment"><div class="deployment-heading"><span>OPENAM DEPLOYMENT</span><small>Identity · horizontally scalable</small></div><div class="pod-row"><div class="openam-pod"><i></i>OpenAM</div><div class="openam-pod"><i></i>OpenAM</div><div class="pod-more">+ N</div></div></div><div class="config-connector"><i></i><span>configuration</span><i></i></div><div class="opendj-deployment"><div><span class="service-mark service-mark-small">CFG</span><span><strong>OpenDJ</strong><small>Dedicated configuration store</small></span></div><span class="replica-badge">STATEFULSET · 2 REPLICAS</span></div></div>
+                  <p class="diagram-note">Independent OpenAM replicas · externalized OpenDJ configuration</p>
+                </div>
               </div>
-              <ul class="card-points"><li>Removed the site-specific configuration dependency and externalized OpenDJ as a separately managed configuration service.</li><li>Packaged the legacy identity stack for Kubernetes, with an init container and monitoring/logging sidecar supporting deployment and operations.</li></ul>
-              <div class="tag-list"><span>OpenAM</span><span>OpenDJ</span><span>Kubernetes</span><span>Identity</span></div>
+              <div class="migration-caption"><span>THE CHANGE</span><strong>Scale the identity tier independently. Keep configuration in its own replicated service.</strong></div>
+              <ul class="card-points"><li>Removed the site-specific setup, moved OpenAM out of the JBoss monolith, and deployed it as horizontally scalable Kubernetes containers.</li><li>Externalized OpenDJ as a dedicated two-replica StatefulSet; added an init container and monitoring/logging sidecar for bootstrap and operations.</li></ul>
+              <div class="tag-list"><span>OpenAM 13.0.0</span><span>OpenDJ</span><span>Kubernetes</span><span>Horizontal scaling</span></div>
             </article>
             <article class="work-card work-card-accent">
               <div class="card-top"><span class="card-index">02 / AUTHENTICATION FLOW</span><span class="card-date">NEXOVA · 2022—2026</span></div>
               <h3>Replacing custom login<br>with Keycloak.</h3>
-              <p class="card-intro">Connected an Angular application to Keycloak and Spring Security while keeping user identity anchored to the application database.</p>
-              <div class="flow" aria-label="Angular to Keycloak to Spring Security to application database">
-                <div class="flow-node">Angular<span>sign in</span></div><i>→</i><div class="flow-node flow-keycloak">Keycloak<span>claims · MFA</span></div><i>→</i><div class="flow-node">Spring<span>Security</span></div><i>→</i><div class="flow-node">User<span>database</span></div>
+              <p class="card-intro">Replaced custom login with an Angular SPA using Authorization Code + PKCE. Spring Security exchanges the authorization code at Keycloak’s token endpoint and receives a JWT with custom claims.</p>
+              <div class="flow" aria-label="Angular SPA sends an authorization code with PKCE to Spring Security, which exchanges it with the Keycloak token endpoint and receives a JWT with custom claims, then uses the email claim to find the user in the application database">
+                <div class="flow-node">Angular SPA<span>Authorization Code + PKCE</span></div><i>→</i><div class="flow-node">Spring Security<span>exchanges authorization code</span></div><i>→</i><div class="flow-node flow-keycloak">Keycloak token endpoint<span>JWT · custom claims</span></div><i>→</i><div class="flow-node">User database<span>email claim lookup</span></div>
               </div>
-              <ul class="card-points"><li>Added an email claim to the token; Spring Security uses it to look up the application user in the database.</li><li>Kept MFA decisions in the existing Keycloak authentication flow, preserving the original program’s control over when MFA is required.</li></ul>
+              <ul class="card-points"><li>Spring Security reads the JWT’s custom <code>email</code> claim to resolve the application user in the database.</li><li>Kept MFA decisions in the existing Keycloak authentication flow, preserving the original program’s control over when MFA is required.</li></ul>
               <div class="tag-list"><span>Angular</span><span>Keycloak</span><span>Spring Security</span><span>OIDC</span></div>
             </article>
             <article class="work-card">

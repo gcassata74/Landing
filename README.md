@@ -1,11 +1,19 @@
-# Giuseppe Cassata — Portfolio
+# Giuseppe Cassata portfolio
 
-Static portfolio site built for GitHub Pages. The repository root is the publishing source, so enabling Pages for the `main` branch serves `index.html` directly.
+Astro static site for GitHub Pages.
 
-## Files
+## Develop locally
 
-- `index.html` — page content and metadata
-- `styles.css` — responsive layout and visual styles
-- `script.js` — current year in the footer
+```sh
+npm install
+npm run dev
+```
 
-The page uses Google Fonts when online and falls back to system fonts if they are unavailable.
+## Build
+
+```sh
+npm run build
+npm run preview
+```
+
+The GitHub Actions workflow builds and deploys the site from `main`. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The project URL is `https://gcassata74.github.io/Landing/`.

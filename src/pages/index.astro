@@ -1,0 +1,244 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const roles = [
+  {
+    years: '2026—NOW',
+    title: 'DevOps/MLOps Lead & Software Application Development',
+    company: 'Condé Nast',
+    location: 'Remote · Sweden',
+    detail: 'Commerce platform · GCP / GKE · GitOps · Terraform',
+  },
+  {
+    years: '2026',
+    title: 'Senior Software Engineer / DevOps',
+    company: 'Awin AG · via Upper',
+    location: 'Remote · Germany',
+    detail: 'Affiliate events · Apache Kafka · AWS MSK',
+  },
+  {
+    years: '2022—2026',
+    title: 'Freelance Senior Software Engineer',
+    company: 'Nexova Group / Starion Group',
+    location: 'Remote · Belgium',
+    detail: 'Cyber-range simulation · Angular · Spring Boot · Keycloak',
+  },
+  {
+    years: '2021—2022',
+    title: 'Freelance Senior Software Engineer',
+    company: 'European Commission · Joint Research Centre',
+    location: 'Ispra · Italy',
+    detail: 'Research applications · nuclear decommissioning · Oracle',
+  },
+  {
+    years: '2018—2021',
+    title: 'Advanced Consultant & Engineer',
+    company: 'Altran Italia · Ericsson, Vodafone, Liguria Digitale',
+    location: 'Italy',
+    detail: 'Identity modernization · middleware · healthcare applications',
+  },
+  {
+    years: '2006—2018',
+    title: 'Software Architect · Lead Developer · Team Leader',
+    company: 'Wideside SAGL at Ericsson · Avelco Italia',
+    location: 'Genova · Italy',
+    detail: 'PKI · Java frameworks · healthcare · team leadership',
+  },
+];
+
+const toolGroups = [
+  ['Backend', 'Java · Spring Boot · Spring Security · Java EE · REST · Kafka'],
+  ['Frontend', 'Angular · TypeScript · JavaScript · React · Node.js'],
+  ['Platform', 'Kubernetes · Docker · GCP / GKE · AWS · Terraform · GitOps'],
+  ['Quality & security', 'Testing · CI/CD · Keycloak · OpenAM · OAuth 2.0 / OIDC'],
+];
+---
+
+<SiteLayout>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Giuseppe Cassata home">
+      <span class="brand-mark">GC<span>.</span></span>
+      <span class="brand-name">GIUSEPPE CASSATA</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#work">Selected work</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="nav-contact" href="mailto:giuseppe.cassata74@gmail.com">Start a conversation</a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation">
+      <a href="#work">Selected work</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="mailto:giuseppe.cassata74@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> SENIOR SOFTWARE & PLATFORM ENGINEER <span class="eyebrow-city">GENOVA · ITALY</span></p>
+        <h1>Complex systems.<br />Clear thinking.<br /><span>Software that lasts.</span></h1>
+        <p class="hero-description">I connect application engineering, identity and cloud operations to make critical software work in production.</p>
+        <div class="hero-links">
+          <a class="button button-primary" href="#work">Explore selected work</a>
+          <a class="button button-quiet" href="mailto:giuseppe.cassata74@gmail.com">Get in touch</a>
+        </div>
+        <div class="hero-proof" aria-label="Career highlights">
+          <div><strong>20<span>+</span></strong><small>years engineering</small></div>
+          <div><strong>12</strong><small>developers led</small></div>
+          <div><strong>EU</strong><small>remote delivery</small></div>
+        </div>
+      </div>
+      <figure class="hero-portrait">
+        <img src={`${base}giuseppe-cassata.jpg`} alt="Giuseppe Cassata" fetchpriority="high" />
+        <figcaption><span>GIUSEPPE CASSATA</span><span>BUILD · SECURE · OPERATE</span></figcaption>
+        <span class="portrait-index" aria-hidden="true">01 / 26</span>
+      </figure>
+      <div class="hero-bottom"><span>JAVA / SPRING</span><span>IDENTITY / IAM</span><span>CLOUD / KUBERNETES</span><span>PRODUCT / DELIVERY</span></div>
+    </section>
+
+    <section class="client-line" aria-label="Industries and teams">
+      <span>Trusted in complex environments</span>
+      <div><b>ERICSSON</b><i></i><b>CONDÉ NAST</b><i></i><b>EUROPEAN COMMISSION</b><i></i><b>STARION</b></div>
+    </section>
+
+    <section class="work-section page-section" id="work">
+      <div class="section-intro">
+        <p class="section-index">01 / SELECTED WORK</p>
+        <h2>Engineering with<br /><span>consequences.</span></h2>
+        <p class="section-summary">A few problems I helped turn into production systems, dependable identity flows and faster development loops.</p>
+      </div>
+
+      <article class="case-study case-ericsson">
+        <div class="case-header">
+          <p class="case-label">IDENTITY MODERNIZATION <span>ERICSSON</span></p>
+          <p class="case-dates">2015—2021</p>
+        </div>
+        <div class="case-heading">
+          <h3>From JBoss monolith<br />to horizontally scalable IAM.</h3>
+          <p>OpenAM 13.0.0 stayed OpenAM. The deployment model changed around it: out of the JBoss monolith, into independently scalable Kubernetes containers.</p>
+        </div>
+        <div class="migration-story">
+          <div class="migration-state state-before">
+            <span class="state-kicker">THE STARTING POINT</span>
+            <strong>One JBoss<br />monolith</strong>
+            <p>Site-based OpenAM configuration and tightly coupled OpenDJ configuration service.</p>
+          </div>
+          <div class="migration-action">
+            <span class="state-kicker">THE REWORK</span>
+            <ul>
+              <li>Removed site-specific configuration</li>
+              <li>Externalized the OpenDJ configuration store</li>
+              <li>Containerized and scaled out OpenAM</li>
+            </ul>
+          </div>
+          <div class="migration-state state-after">
+            <span class="state-kicker">THE RESULT</span>
+            <strong>Cloud-oriented<br />identity tier</strong>
+            <p>Horizontal OpenAM replicas, with OpenDJ isolated in its own two-replica StatefulSet.</p>
+          </div>
+        </div>
+        <div class="case-footer"><span>INIT CONTAINER · MONITORING / LOGGING SIDECAR</span><span>KUBERNETES · OPENAM 13.0.0 · OPENDJ</span></div>
+      </article>
+
+      <article class="case-study case-keycloak">
+        <div class="case-header">
+          <p class="case-label">AUTHENTICATION FLOW <span>NEXOVA / STARION</span></p>
+          <p class="case-dates">2022—2026</p>
+        </div>
+        <div class="case-heading">
+          <h3>One standard login.<br /><span>Clear trust boundaries.</span></h3>
+          <p>Replaced a custom login in the cyber-range SPA with Keycloak and Spring Security, while the existing application kept ownership of its user records and MFA policy.</p>
+        </div>
+        <ol class="auth-flow" aria-label="Authentication steps">
+          <li><span class="flow-step">01</span><strong>Angular SPA</strong><p>Authorization Code<br />+ PKCE</p></li>
+          <li><span class="flow-step">02</span><strong>Spring Security</strong><p>Exchanges the<br />authorization code</p></li>
+          <li><span class="flow-step">03</span><strong>Keycloak token endpoint</strong><p>Returns JWT with<br />custom claims</p></li>
+          <li><span class="flow-step">04</span><strong>Application database</strong><p><code>email</code> claim resolves<br />the application user</p></li>
+        </ol>
+        <div class="mfa-note"><span class="mfa-signal"></span><p><strong>MFA stays where it belongs.</strong> The original Keycloak authentication flow continues to decide when multi-factor authentication is required.</p></div>
+        <div class="case-footer"><span>ANGULAR · KEYCLOAK · SPRING SECURITY</span><span>OIDC · JWT · CUSTOM CLAIMS</span></div>
+      </article>
+
+      <article class="case-study case-platform">
+        <div class="case-header">
+          <p class="case-label">DEVELOPER EXPERIENCE <span>CONDÉ NAST</span></p>
+          <p class="case-dates">2026—NOW</p>
+        </div>
+        <div class="platform-grid">
+          <div>
+            <h3>Fast feedback.<br /><span>Better releases.</span></h3>
+            <p>Improving test coverage and quality controls for VETTE, a commerce and creator platform.</p>
+          </div>
+          <div class="workflow-list">
+            <div><span>01</span><p>Local Kubernetes environment with source volumes mounted into containers.</p></div>
+            <div><span>02</span><p>Node sidecar builds and watches the application for a short edit-to-feedback loop.</p></div>
+            <div><span>03</span><p>CI/CD quality gates and GitOps delivery, backed by GCP, GKE and Terraform.</p></div>
+          </div>
+        </div>
+        <div class="case-footer"><span>TEST COVERAGE · QUALITY CONTROL</span><span>GCP · GKE · GITOPS · TERRAFORM</span></div>
+      </article>
+
+      <article class="case-study case-avelco">
+        <div class="case-header">
+          <p class="case-label">APPLICATION FRAMEWORKS <span>AVELCO ITALIA</span></p>
+          <p class="case-dates">2006—2015</p>
+        </div>
+        <div class="avelco-grid">
+          <h3>Build the framework.<br /><span>Multiply the team’s reach.</span></h3>
+          <p>Created two reusable Java and JavaScript frameworks for healthcare applications, spanning Struts and Struts 2 on the server side, with Dojo and vanilla JavaScript in the browser. Led a team of 12 developers.</p>
+        </div>
+        <div class="avelco-stack"><span>JAVA <strong>Struts → Struts 2</strong></span><span>JAVASCRIPT <strong>Dojo · vanilla JS</strong></span><span>LEADERSHIP <strong>12 developers</strong></span></div>
+      </article>
+    </section>
+
+    <section class="experience-section page-section" id="experience">
+      <div class="section-heading-row">
+        <div><p class="section-index">02 / EXPERIENCE</p><h2>Twenty years.<br /><span>Still hands-on.</span></h2></div>
+        <p class="section-summary">Product teams, international programmes and enterprise systems across cybersecurity, telecom, commerce, healthcare and research.</p>
+      </div>
+      <div class="experience-list">
+        {roles.map((role) => (
+          <article class="experience-row">
+            <span class="experience-years">{role.years}</span>
+            <div class="experience-main"><h3>{role.title}</h3><p>{role.company} <span>· {role.location}</span></p></div>
+            <p class="experience-detail">{role.detail}</p>
+          </article>
+        ))}
+        <article class="experience-row experience-earlier">
+          <span class="experience-years">2001—2006</span>
+          <div class="experience-main"><h3>Earlier engineering & software roles</h3><p>Technology Italiana · Accenture</p></div>
+          <p class="experience-detail">Laser systems engineering · SAP ABAP development & training</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section page-section" id="about">
+      <div class="about-title"><p class="section-index">03 / HOW I WORK</p><h2>Think across<br />the whole system.</h2></div>
+      <div class="about-copy"><p class="about-lede">I’m most useful where the application, the platform and the people operating them meet.</p><p>That means staying close to code while asking what makes a release safer, an identity flow easier to trust, or a production issue faster to understand. I’ve led a team of 12 and worked with distributed teams across Europe.</p><a href="https://www.linkedin.com/in/giuseppe-cassata/" target="_blank" rel="noreferrer">Connect on LinkedIn</a></div>
+      <div class="tool-groups">
+        {toolGroups.map(([group, skills]) => (
+          <div class="tool-row"><span>{group}</span><p>{skills}</p></div>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-inner">
+        <p class="section-index">04 / NEXT STEP</p>
+        <h2>Let’s make your<br /><span>next system work.</span></h2>
+        <p>Available for remote EU B2B engagements.</p>
+        <a class="button button-primary" href="mailto:giuseppe.cassata74@gmail.com">Email Giuseppe</a>
+      </div>
+      <div class="contact-detail"><span>GENOVA, ITALY</span><span>REMOTE · EUROPE</span><span>© <span data-year>2026</span> GIUSEPPE CASSATA</span></div>
+    </section>
+  </main>
+</SiteLayout>

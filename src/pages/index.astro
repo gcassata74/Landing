@@ -167,14 +167,14 @@ const toolGroups = [
         </div>
         <div class="case-heading">
           <h3>One identity.<br /><span>App-owned authorization.</span></h3>
-          <p>Angular and AngularJS use Keycloak for sign-in. Spring Security validates the token, then the application resolves the user and permissions from its own database.</p>
+          <p>The Angular app uses the AngularJS library and signs in through Keycloak. Spring Security validates the token, then the application resolves the user and permissions from its own database.</p>
         </div>
         <figure class="auth-architecture">
           <picture>
             <source media="(max-width: 640px)" srcset={`${base}/keycloak-authz-flow-mobile.svg`} />
             <img
               src={`${base}/keycloak-authz-flow.svg`}
-              alt="Angular and AngularJS sign in through Keycloak using OpenID Connect Authorization Code with PKCE. Keycloak returns JWTs with custom claims. Each app sends the access token to Spring Security, which validates it and uses the email claim to load the local user and permissions from the application database before allowing or denying access."
+              alt="The Angular application uses the AngularJS library and signs in through Keycloak using OpenID Connect Authorization Code with PKCE. Keycloak returns a JWT with custom claims. Spring Security validates the access token and uses the email claim to load the local user and permissions from the application database before allowing or denying access."
               loading="lazy"
             />
           </picture>
@@ -193,6 +193,14 @@ const toolGroups = [
           <h3>Ready-made building blocks.<br /><span>Legacy software, rebuilt.</span></h3>
           <p>Provided developers with ready-made services and components, and ported a Visual Basic 6 application to Java and JavaScript. The work included Struts and Struts 2 on the server, with Dojo and vanilla JavaScript in the browser. Led a team of 12 developers.</p>
         </div>
+        <figure class="avelco-illustration">
+          <img
+            src={`${base}/avelco-framework-porting.png`}
+            alt="A Visual Basic 6 desktop application flows through reusable framework functions and components into Java services and JavaScript interfaces."
+            loading="lazy"
+          />
+          <figcaption>VISUAL BASIC 6 <span>→</span> REUSABLE FUNCTIONS + COMPONENTS <span>→</span> JAVA + JAVASCRIPT</figcaption>
+        </figure>
         <div class="avelco-stack"><span>PORTING <strong>Visual Basic 6 → Java + JavaScript</strong></span><span>REUSABLE TOOLING <strong>Services · components</strong></span><span>LEADERSHIP <strong>12 developers</strong></span></div>
       </article>
     </section>

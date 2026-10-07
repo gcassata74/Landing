@@ -59,6 +59,10 @@ body{font-size:18px;background:radial-gradient(ellipse at 82% 12%,rgba(2,170,164
 .avelco-grid{margin:38px 0 29px}
 .avelco-grid h3{font-size:clamp(34px,4.1vw,52px);line-height:1.02}
 .avelco-grid>p{font-size:14px;line-height:1.75}
+.avelco-illustration{margin:0 0 28px;background:#171725;border:1px solid rgba(225,226,241,.12)}
+.avelco-illustration img{display:block;width:100%;aspect-ratio:3/1;object-fit:cover}
+.avelco-illustration figcaption{display:flex;flex-wrap:wrap;gap:8px 12px;padding:12px 16px;color:#aeb0c2;font:500 8px var(--mono);letter-spacing:.08em}
+.avelco-illustration figcaption span{color:var(--green)}
 .avelco-stack>span{padding:17px 18px 17px 0;font-size:9px}
 .avelco-stack strong{font-size:13px}
 .experience-section{padding-top:128px;padding-bottom:128px}
@@ -148,6 +152,9 @@ body{font-size:18px;background:radial-gradient(ellipse at 82% 12%,rgba(2,170,164
   .avelco-grid{gap:15px;margin:25px 0 21px}
   .avelco-grid h3{font-size:clamp(34px,8.5vw,42px)}
   .avelco-grid>p{font-size:12px;line-height:1.7}
+  .avelco-illustration{margin-bottom:21px}
+  .avelco-illustration img{aspect-ratio:3/1}
+  .avelco-illustration figcaption{gap:5px 8px;padding:10px 12px;font-size:6px}
   .avelco-stack>span{padding:13px 8px 13px 0;font-size:7px}
   .avelco-stack>span+span{padding-left:8px}
   .avelco-stack strong{font-size:9px}

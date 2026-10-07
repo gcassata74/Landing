@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1570" role="img" aria-labelledby="title desc">
-  <title id="title">Mobile view: Angular, AngularJS, Keycloak and application authorization flow</title>
-  <desc id="desc">Two web clients sign in through Keycloak. Keycloak returns JWTs with custom claims. Spring Security validates the bearer token and checks local users and permissions in the application database.</desc>
+  <title id="title">Mobile view: Angular, Keycloak and application authorization flow</title>
+  <desc id="desc">The Angular application uses the AngularJS library and signs in through Keycloak. Keycloak returns a JWT with custom claims. Spring Security validates the bearer token and checks local users and permissions in the application database.</desc>
   <defs>
     <linearGradient id="back" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#222338"/><stop offset="1" stop-color="#191a29"/></linearGradient>
     <linearGradient id="client" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1b373a"/><stop offset="1" stop-color="#202b3b"/></linearGradient>
@@ -12,23 +12,20 @@
   </defs>
   <rect width="600" height="1570" rx="22" fill="#171725"/>
   <circle cx="540" cy="125" r="170" fill="#02aaa4" opacity=".045"/>
-  <text x="32" y="49" fill="#06f481" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2">ONE IDENTITY · TWO CLIENTS</text>
+  <text x="32" y="49" fill="#06f481" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2">ONE IDENTITY · ONE CLIENT</text>
   <text x="32" y="82" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="21" font-weight="700">Sign in once. Authorize with app data.</text>
   <text x="32" y="112" fill="#9a9cb2" font-family="Arial,sans-serif" font-size="10" letter-spacing="1.2">OIDC · JWT · LOCAL AUTHZ</text>
 
   <!-- Frontends -->
   <rect x="28" y="145" width="544" height="246" rx="17" fill="url(#back)" stroke="#6d718a" stroke-opacity=".42"/>
-  <text x="51" y="179" fill="#8c91a9" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">01 · FRONTENDS</text>
+  <text x="51" y="179" fill="#8c91a9" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">01 · FRONTEND</text>
   <rect x="49" y="197" width="502" height="73" rx="12" fill="url(#client)" stroke="#06f481" stroke-opacity=".48"/>
   <rect x="66" y="216" width="34" height="34" rx="9" fill="#06f481" fill-opacity=".13"/>
   <path d="M74 226h18M74 233h18M74 240h12" stroke="#06f481" stroke-width="2" stroke-linecap="round"/>
   <text x="116" y="229" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="18" font-weight="700">Angular</text>
   <text x="116" y="249" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">Single-page application</text>
-  <rect x="49" y="286" width="502" height="73" rx="12" fill="url(#client)" stroke="#02aaa4" stroke-opacity=".58"/>
-  <rect x="66" y="305" width="34" height="34" rx="9" fill="#02aaa4" fill-opacity=".16"/>
-  <path d="M74 315h18M74 322h18M74 329h12" stroke="#02aaa4" stroke-width="2" stroke-linecap="round"/>
-  <text x="116" y="318" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="18" font-weight="700">AngularJS</text>
-  <text x="116" y="338" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">Legacy web application</text>
+  <text x="81" y="318" fill="#c0c1cf" font-family="Arial,sans-serif" font-size="12">Uses the AngularJS library.</text>
+  <text x="81" y="345" fill="#02aaa4" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">OIDC CLIENT · KEYCLOAK</text>
 
   <!-- OIDC handoff -->
   <path d="M300 391V442" fill="none" stroke="#06f481" stroke-width="2.5" marker-end="url(#arrow)"/>

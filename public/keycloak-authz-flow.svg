@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 680" role="img" aria-labelledby="title desc">
-  <title id="title">Angular and AngularJS authentication with Keycloak and application database authorization</title>
-  <desc id="desc">Angular and AngularJS clients sign in through Keycloak using OpenID Connect Authorization Code with PKCE. Keycloak returns tokens with custom claims. The clients send the access token to a Spring Security API, which validates it and loads the local user and permissions from the application database before allowing or denying the request.</desc>
+  <title id="title">Angular authentication with Keycloak and application database authorization</title>
+  <desc id="desc">The Angular application uses the AngularJS library and signs in through Keycloak using OpenID Connect Authorization Code with PKCE. Keycloak returns a token with custom claims. The application sends the access token to a Spring Security API, which validates it and loads the local user and permissions from the application database before allowing or denying the request.</desc>
   <defs>
     <linearGradient id="back" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#222338"/><stop offset="1" stop-color="#191a29"/></linearGradient>
     <linearGradient id="client" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1b373a"/><stop offset="1" stop-color="#202b3b"/></linearGradient>
@@ -14,7 +14,7 @@
   <rect width="1440" height="680" rx="22" fill="#171725"/>
   <circle cx="1330" cy="75" r="250" fill="#02aaa4" opacity=".045"/>
   <circle cx="155" cy="620" r="230" fill="#06f481" opacity=".025"/>
-  <text x="44" y="48" fill="#06f481" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2.2">ONE IDENTITY · TWO CLIENTS</text>
+  <text x="44" y="48" fill="#06f481" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2.2">ONE IDENTITY · ONE CLIENT</text>
   <text x="44" y="79" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="23" font-weight="700">Sign in once. Authorize with application data.</text>
   <text x="1395" y="51" text-anchor="end" fill="#9a9cb2" font-family="Arial,sans-serif" font-size="11" letter-spacing="1.5">OIDC · JWT · LOCAL AUTHZ</text>
   <path d="M44 105H1396" stroke="#777a95" stroke-opacity=".2"/>
@@ -26,20 +26,15 @@
   <rect x="1042" y="140" width="360" height="375" rx="17" fill="url(#db)" stroke="#ae9ae0" stroke-opacity=".4"/>
 
   <!-- Frontends -->
-  <text x="62" y="177" fill="#8c91a9" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">01 · FRONTENDS</text>
+  <text x="62" y="177" fill="#8c91a9" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">01 · FRONTEND</text>
   <rect x="59" y="198" width="243" height="104" rx="12" fill="url(#client)" stroke="#06f481" stroke-opacity=".48"/>
   <rect x="77" y="219" width="34" height="34" rx="9" fill="#06f481" fill-opacity=".13"/>
   <path d="M85 229h18M85 236h18M85 243h12" stroke="#06f481" stroke-width="2" stroke-linecap="round"/>
   <text x="124" y="231" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="17" font-weight="700">Angular</text>
   <text x="124" y="253" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">Single-page application</text>
   <text x="77" y="281" fill="#06f481" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">OIDC CLIENT</text>
-  <rect x="59" y="319" width="243" height="104" rx="12" fill="url(#client)" stroke="#02aaa4" stroke-opacity=".58"/>
-  <rect x="77" y="340" width="34" height="34" rx="9" fill="#02aaa4" fill-opacity=".16"/>
-  <path d="M85 350h18M85 357h18M85 364h12" stroke="#02aaa4" stroke-width="2" stroke-linecap="round"/>
-  <text x="124" y="352" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="17" font-weight="700">AngularJS</text>
-  <text x="124" y="374" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">Legacy web application</text>
-  <text x="77" y="402" fill="#02aaa4" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">OIDC CLIENT</text>
-  <text x="62" y="466" fill="#c0c1cf" font-family="Arial,sans-serif" font-size="11">Both use the same Keycloak realm.</text>
+  <text x="77" y="321" fill="#c0c1cf" font-family="Arial,sans-serif" font-size="11">Uses the AngularJS library.</text>
+  <text x="77" y="350" fill="#02aaa4" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">OIDC CLIENT · SAME KEYCLOAK REALM</text>
 
   <!-- Keycloak -->
   <text x="390" y="177" fill="#06f481" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">02 · IDENTITY PROVIDER</text>
@@ -79,7 +74,6 @@
 
   <!-- Connectors -->
   <path d="M302 250H355Q366 250 366 261" fill="none" stroke="#06f481" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M302 371H355Q366 371 366 360" fill="none" stroke="#02aaa4" stroke-width="2" marker-end="url(#arrow)"/>
   <path d="M646 282H689" fill="none" stroke="#06f481" stroke-width="2.5" marker-end="url(#arrow)"/>
   <path d="M999 329H1042" fill="none" stroke="#c0a5ff" stroke-width="2.5" marker-end="url(#arrow)"/>
   <path d="M1042 393H999" fill="none" stroke="#9295b0" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow-soft)"/>

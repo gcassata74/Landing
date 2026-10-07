@@ -16,4 +16,4 @@ npm run build
 npm run preview
 ```
 
-The GitHub Actions workflow builds and deploys the site from `main`. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The project URL is `https://gcassata74.github.io/Landing/`.
+The GitHub Actions workflow builds and deploys the site from `main`. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The project URL is `https://gcassata74.github.io/landing/`.

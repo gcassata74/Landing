@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 740" role="img" aria-labelledby="title desc">
+  <title id="title">OpenAM 13 deployment: from coupled runtime to horizontal scale</title>
+  <desc id="desc">A JBoss hosted OpenAM 13 instance with an embedded OpenDJ configuration store is separated into load-balanced OpenAM replicas connected to a dedicated two-replica OpenDJ configuration store.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#292a40"/><stop offset="1" stop-color="#1c1d2c"/></linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#06f481" stop-opacity=".1"/><stop offset="1" stop-color="#02aaa4" stop-opacity=".02"/></linearGradient>
+    <linearGradient id="openam" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#183d39"/><stop offset="1" stop-color="#20332f"/></linearGradient>
+    <linearGradient id="directory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173b43"/><stop offset="1" stop-color="#202b3d"/></linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#06f481"/></marker>
+    <marker id="arrowDim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6e768f"/></marker>
+  </defs>
+
+  <rect width="1440" height="740" rx="22" fill="#171725"/>
+  <circle cx="1280" cy="85" r="240" fill="#02aaa4" opacity=".035"/>
+  <circle cx="188" cy="684" r="260" fill="#06f481" opacity=".025"/>
+  <path d="M28 110H1412" stroke="#777a95" stroke-opacity=".18"/>
+  <text x="54" y="61" fill="#06f481" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2.5">IDENTITY MODERNIZATION</text>
+  <text x="54" y="91" fill="#dfe1ed" font-family="Arial,sans-serif" font-size="17">OpenAM “site” means a configured server pool. The bottleneck was its embedded config store.</text>
+  <text x="1386" y="65" text-anchor="end" fill="#878aa3" font-family="Arial,sans-serif" font-size="12" letter-spacing="1.5">OPENAM 13.0.0</text>
+
+  <!-- BEFORE -->
+  <rect x="48" y="142" width="414" height="535" rx="18" fill="url(#panel)" stroke="#777a95" stroke-opacity=".32"/>
+  <rect x="70" y="164" width="126" height="29" rx="14.5" fill="#3c3040"/>
+  <circle cx="87" cy="178.5" r="4" fill="#ff9b76"/>
+  <text x="101" y="183" fill="#ffc5ae" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.3">BEFORE</text>
+  <text x="70" y="232" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="27" font-weight="700">Tightly coupled</text>
+  <text x="70" y="258" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="15">One runtime owns both app and local config.</text>
+
+  <rect x="76" y="286" width="358" height="291" rx="14" fill="#202132" stroke="#a3a5bb" stroke-opacity=".48" stroke-dasharray="5 7"/>
+  <text x="96" y="316" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">JBOSS RUNTIME</text>
+  <rect x="96" y="335" width="318" height="105" rx="11" fill="url(#openam)" stroke="#06f481" stroke-opacity=".7"/>
+  <rect x="113" y="352" width="37" height="37" rx="9" fill="#06f481" fill-opacity=".14"/>
+  <path d="M122 363h19M122 370h19M122 377h12" stroke="#06f481" stroke-width="2" stroke-linecap="round"/>
+  <text x="164" y="366" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="18" font-weight="700">OpenAM 13 WAR</text>
+  <text x="164" y="391" fill="#b7d7ca" font-family="Arial,sans-serif" font-size="13">Site-specific server configuration</text>
+  <path d="M255 441v20" stroke="#6e768f" stroke-width="2" marker-end="url(#arrowDim)"/>
+  <rect x="96" y="468" width="318" height="85" rx="11" fill="url(#directory)" stroke="#02aaa4" stroke-opacity=".68"/>
+  <circle cx="126" cy="505" r="16" fill="#02aaa4" fill-opacity=".15" stroke="#02aaa4" stroke-opacity=".7"/>
+  <path d="M118 500h16M118 505h16M118 510h16" stroke="#63ded3" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="153" y="499" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="16" font-weight="700">Embedded OpenDJ</text>
+  <text x="153" y="522" fill="#a9cbd0" font-family="Arial,sans-serif" font-size="12">Configuration store · same JVM</text>
+  <text x="96" y="609" fill="#ffc5ae" font-family="Arial,sans-serif" font-size="13" font-weight="700">ACTIVE / ACTIVE STORE WRITES CAN COLLIDE</text>
+  <text x="96" y="634" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="13">The embedded config store is the scaling constraint.</text>
+
+  <!-- CHANGE -->
+  <path d="M486 407h104" stroke="#06f481" stroke-width="2.5" marker-end="url(#arrow)" filter="url(#softGlow)"/>
+  <circle cx="531" cy="407" r="28" fill="#1f2830" stroke="#06f481" stroke-opacity=".65"/>
+  <path d="M521 407h20M531 397v20" stroke="#06f481" stroke-width="2" stroke-linecap="round"/>
+  <text x="538" y="467" text-anchor="middle" fill="#06f481" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.1">SEPARATE</text>
+  <text x="538" y="486" text-anchor="middle" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="12">config store</text>
+  <text x="538" y="508" text-anchor="middle" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="12">from app tier</text>
+
+  <!-- AFTER -->
+  <rect x="614" y="142" width="778" height="535" rx="18" fill="url(#panel)" stroke="#06f481" stroke-opacity=".48"/>
+  <rect x="638" y="164" width="112" height="29" rx="14.5" fill="#153b37"/>
+  <circle cx="655" cy="178.5" r="4" fill="#06f481"/>
+  <text x="669" y="183" fill="#9affcf" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.3">AFTER</text>
+  <text x="638" y="232" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="27" font-weight="700">Scale the app tier</text>
+  <text x="638" y="258" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="15">Keep OpenAM 13.0.0; separate its shared configuration service.</text>
+
+  <!-- clients and load balancer -->
+  <rect x="638" y="300" width="118" height="60" rx="10" fill="#25283b" stroke="#777a95" stroke-opacity=".55"/>
+  <circle cx="658" cy="320" r="5" fill="#c9cada"/><circle cx="675" cy="320" r="5" fill="#c9cada"/><circle cx="692" cy="320" r="5" fill="#c9cada"/>
+  <path d="M651 341h91" stroke="#6e768f" stroke-width="2" stroke-linecap="round"/>
+  <text x="697" y="355" text-anchor="middle" fill="#c9cada" font-family="Arial,sans-serif" font-size="11">CLIENTS</text>
+  <path d="M757 330h44" stroke="#06f481" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="810" y="294" width="223" height="73" rx="12" fill="#253345" stroke="#02aaa4" stroke-opacity=".85"/>
+  <path d="M829 316h24M829 328h24M829 340h24" stroke="#63ded3" stroke-width="2" stroke-linecap="round"/>
+  <text x="867" y="323" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="16" font-weight="700">Load balancer</text>
+  <text x="867" y="345" fill="#a9cbd0" font-family="Arial,sans-serif" font-size="12">single entry URL</text>
+
+  <!-- scalable OpenAM site -->
+  <rect x="788" y="396" width="570" height="146" rx="14" fill="url(#glow)" stroke="#06f481" stroke-opacity=".62" stroke-dasharray="6 6"/>
+  <text x="808" y="421" fill="#9affcf" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">OPENAM APP TIER · REPLICAS SCALE HORIZONTALLY</text>
+  <path d="M922 368v15M887 383h360" fill="none" stroke="#06f481" stroke-opacity=".85" stroke-width="2"/>
+  <path d="M887 383v14M1067 383v14M1247 383v14" fill="none" stroke="#06f481" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="808" y="440" width="158" height="76" rx="10" fill="url(#openam)" stroke="#06f481" stroke-opacity=".72"/>
+  <rect x="988" y="440" width="158" height="76" rx="10" fill="url(#openam)" stroke="#06f481" stroke-opacity=".72"/>
+  <rect x="1168" y="440" width="158" height="76" rx="10" fill="url(#openam)" stroke="#06f481" stroke-opacity=".72"/>
+  <circle cx="831" cy="463" r="5" fill="#06f481"/><circle cx="1011" cy="463" r="5" fill="#06f481"/><circle cx="1191" cy="463" r="5" fill="#06f481"/>
+  <text x="846" y="469" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="14" font-weight="700">OpenAM</text>
+  <text x="1026" y="469" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="14" font-weight="700">OpenAM</text>
+  <text x="1206" y="469" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="14" font-weight="700">OpenAM</text>
+  <text x="831" y="494" fill="#b7d7ca" font-family="Arial,sans-serif" font-size="11">replica 01</text>
+  <text x="1011" y="494" fill="#b7d7ca" font-family="Arial,sans-serif" font-size="11">replica 02</text>
+  <text x="1191" y="494" fill="#b7d7ca" font-family="Arial,sans-serif" font-size="11">replica N</text>
+  <path d="M887 517v40M1067 517v40M1247 517v40" fill="none" stroke="#02aaa4" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <path d="M887 555h360" stroke="#02aaa4" stroke-width="1.5" stroke-dasharray="4 5" marker-end="url(#arrowDim)"/>
+
+  <!-- external OpenDJ configuration service -->
+  <rect x="860" y="576" width="404" height="72" rx="12" fill="url(#directory)" stroke="#02aaa4" stroke-opacity=".82"/>
+  <circle cx="886" cy="612" r="15" fill="#02aaa4" fill-opacity=".17" stroke="#02aaa4"/>
+  <path d="M879 607h14M879 612h14M879 617h14" stroke="#63ded3" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="912" y="605" fill="#f5f5fa" font-family="Arial,sans-serif" font-size="16" font-weight="700">External OpenDJ config store</text>
+  <text x="912" y="627" fill="#a9cbd0" font-family="Arial,sans-serif" font-size="12">Dedicated service · 2-replica StatefulSet</text>
+  <rect x="1223" y="595" width="23" height="34" rx="5" fill="#02aaa4" fill-opacity=".18" stroke="#63ded3" stroke-opacity=".8"/>
+  <path d="M1229 603h11M1229 610h11M1229 617h11" stroke="#63ded3" stroke-width="1.3" stroke-linecap="round"/>
+
+  <text x="638" y="708" fill="#8588a0" font-family="Arial,sans-serif" font-size="12">OpenAM stays the same. The deployment boundary changes.</text>
+  <text x="1386" y="708" text-anchor="end" fill="#8588a0" font-family="Arial,sans-serif" font-size="12">APPLICATION TIER ↗</text>
+</svg>

@@ -124,8 +124,19 @@ const toolGroups = [
         </div>
         <div class="case-heading">
           <h3>From JBoss monolith<br />to horizontally scalable IAM.</h3>
-          <p>OpenAM 13.0.0 stayed OpenAM. The deployment model changed around it: out of the JBoss monolith, into independently scalable Kubernetes containers.</p>
+          <p>OpenAM 13 could run as a load-balanced server pool. The scaling constraint was its embedded OpenDJ configuration store: multiple active copies could collide on writes. I separated the store, removed site-specific setup and moved the OpenAM tier into independently scalable containers.</p>
         </div>
+        <figure class="architecture-visual">
+          <picture>
+            <source media="(max-width: 640px)" srcset={`${base}/openam-site-topology-mobile.svg`} />
+            <img
+              src={`${base}/openam-site-topology.svg`}
+              alt="OpenAM 13 moves from a JBoss runtime with embedded OpenDJ configuration to load-balanced OpenAM replicas using a dedicated two-replica OpenDJ configuration service."
+              loading="lazy"
+            />
+          </picture>
+          <figcaption><span>BEFORE / AFTER · OPENAM 13.0.0</span><span>Scale the application tier without cloning its embedded store.</span></figcaption>
+        </figure>
         <div class="migration-story">
           <div class="migration-state state-before">
             <span class="state-kicker">THE STARTING POINT</span>

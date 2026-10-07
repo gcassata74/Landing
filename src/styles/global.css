@@ -81,6 +81,11 @@ body{font-size:18px;background:radial-gradient(ellipse at 82% 12%,rgba(2,170,164
 .contact-inner>p:not(.section-index){font-size:15px;margin-bottom:28px}
 .contact-detail{font-size:9px;padding:20px 34px 0}
 .contact-inner .section-index{margin-bottom:28px}
+.architecture-visual{margin:42px 0 28px;border:1px solid rgba(225,226,241,.15);background:#171725;overflow:hidden}
+.architecture-visual picture,.architecture-visual img{display:block;width:100%}
+.architecture-visual img{height:auto}
+.architecture-visual figcaption{display:flex;justify-content:space-between;gap:18px;padding:15px 20px;border-top:1px solid rgba(225,226,241,.12);font:500 10px/1.5 var(--mono);letter-spacing:.04em;color:#aeb0c2}
+.architecture-visual figcaption span:first-child{color:var(--green)}
 @media(min-width:1440px){.hero{min-height:840px}.hero h1{font-size:100px}.hero-portrait{width:490px;height:610px}}
 @media(max-width:900px){
   .hero{min-height:700px;column-gap:4%;padding-inline:26px}
@@ -120,6 +125,8 @@ body{font-size:18px;background:radial-gradient(ellipse at 82% 12%,rgba(2,170,164
   .case-heading{margin:25px 0 23px}
   .case-heading h3,.case-keycloak .case-heading h3,.platform-grid h3{font-size:clamp(36px,9vw,44px);line-height:1.02}
   .case-heading>p{font-size:14px;line-height:1.7;margin-top:15px}
+  .architecture-visual{margin:29px 0 20px}
+  .architecture-visual figcaption{display:grid;gap:5px;padding:12px 13px;font-size:8px}
   .migration-state,.migration-action{padding:19px 17px}
   .state-kicker{font-size:8px}
   .migration-state strong{font-size:24px;margin:15px 0 8px}

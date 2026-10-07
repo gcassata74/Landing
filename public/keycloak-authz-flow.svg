@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 680" role="img" aria-labelledby="title desc">
+  <title id="title">Angular and AngularJS authentication with Keycloak and application database authorization</title>
+  <desc id="desc">Angular and AngularJS clients sign in through Keycloak using OpenID Connect Authorization Code with PKCE. Keycloak returns tokens with custom claims. The clients send the access token to a Spring Security API, which validates it and loads the local user and permissions from the application database before allowing or denying the request.</desc>
+  <defs>
+    <linearGradient id="back" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#222338"/><stop offset="1" stop-color="#191a29"/></linearGradient>
+    <linearGradient id="client" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1b373a"/><stop offset="1" stop-color="#202b3b"/></linearGradient>
+    <linearGradient id="keycloak" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#163d3c"/><stop offset="1" stop-color="#202d3c"/></linearGradient>
+    <linearGradient id="server" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#26364a"/><stop offset="1" stop-color="#202333"/></linearGradient>
+    <linearGradient id="db" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#34324a"/><stop offset="1" stop-color="#23243a"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#06f481"/></marker>
+    <marker id="arrow-soft" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#9295b0"/></marker>
+  </defs>
+  <rect width="1440" height="680" rx="22" fill="#171725"/>
+  <circle cx="1330" cy="75" r="250" fill="#02aaa4" opacity=".045"/>
+  <circle cx="155" cy="620" r="230" fill="#06f481" opacity=".025"/>
+  <text x="44" y="48" fill="#06f481" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2.2">ONE IDENTITY · TWO CLIENTS</text>
+  <text x="44" y="79" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="23" font-weight="700">Sign in once. Authorize with application data.</text>
+  <text x="1395" y="51" text-anchor="end" fill="#9a9cb2" font-family="Arial,sans-serif" font-size="11" letter-spacing="1.5">OIDC · JWT · LOCAL AUTHZ</text>
+  <path d="M44 105H1396" stroke="#777a95" stroke-opacity=".2"/>
+
+  <!-- Connected system boundaries -->
+  <rect x="38" y="140" width="285" height="375" rx="17" fill="url(#back)" stroke="#6d718a" stroke-opacity=".42"/>
+  <rect x="366" y="140" width="280" height="375" rx="17" fill="url(#keycloak)" stroke="#06f481" stroke-opacity=".55"/>
+  <rect x="689" y="140" width="310" height="375" rx="17" fill="url(#server)" stroke="#7e9fc0" stroke-opacity=".45"/>
+  <rect x="1042" y="140" width="360" height="375" rx="17" fill="url(#db)" stroke="#ae9ae0" stroke-opacity=".4"/>
+
+  <!-- Frontends -->
+  <text x="62" y="177" fill="#8c91a9" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">01 · FRONTENDS</text>
+  <rect x="59" y="198" width="243" height="104" rx="12" fill="url(#client)" stroke="#06f481" stroke-opacity=".48"/>
+  <rect x="77" y="219" width="34" height="34" rx="9" fill="#06f481" fill-opacity=".13"/>
+  <path d="M85 229h18M85 236h18M85 243h12" stroke="#06f481" stroke-width="2" stroke-linecap="round"/>
+  <text x="124" y="231" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="17" font-weight="700">Angular</text>
+  <text x="124" y="253" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">Single-page application</text>
+  <text x="77" y="281" fill="#06f481" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">OIDC CLIENT</text>
+  <rect x="59" y="319" width="243" height="104" rx="12" fill="url(#client)" stroke="#02aaa4" stroke-opacity=".58"/>
+  <rect x="77" y="340" width="34" height="34" rx="9" fill="#02aaa4" fill-opacity=".16"/>
+  <path d="M85 350h18M85 357h18M85 364h12" stroke="#02aaa4" stroke-width="2" stroke-linecap="round"/>
+  <text x="124" y="352" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="17" font-weight="700">AngularJS</text>
+  <text x="124" y="374" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">Legacy web application</text>
+  <text x="77" y="402" fill="#02aaa4" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">OIDC CLIENT</text>
+  <text x="62" y="466" fill="#c0c1cf" font-family="Arial,sans-serif" font-size="11">Both use the same Keycloak realm.</text>
+
+  <!-- Keycloak -->
+  <text x="390" y="177" fill="#06f481" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">02 · IDENTITY PROVIDER</text>
+  <circle cx="506" cy="245" r="35" fill="#06f481" fill-opacity=".1" stroke="#06f481" stroke-opacity=".4"/>
+  <path d="M490 252v-15l16-9 16 9v15l-16 9z" fill="none" stroke="#06f481" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="506" cy="244" r="4" fill="#06f481" filter="url(#glow)"/>
+  <text x="506" y="311" text-anchor="middle" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="25" font-weight="700">Keycloak</text>
+  <text x="506" y="342" text-anchor="middle" fill="#c4c6d4" font-family="Arial,sans-serif" font-size="12">OpenID Connect · Authorization Code</text>
+  <text x="506" y="362" text-anchor="middle" fill="#c4c6d4" font-family="Arial,sans-serif" font-size="12">+ PKCE · MFA policy</text>
+  <rect x="395" y="389" width="222" height="67" rx="10" fill="#111d27" fill-opacity=".72" stroke="#06f481" stroke-opacity=".33"/>
+  <text x="414" y="414" fill="#8fbea9" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.1">SIGNED ACCESS TOKEN</text>
+  <text x="414" y="438" fill="#f4f4f8" font-family="monospace" font-size="13">JWT + custom claims</text>
+
+  <!-- Spring Security/API -->
+  <text x="713" y="177" fill="#a6c4e5" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">03 · RESOURCE SERVER</text>
+  <text x="716" y="225" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="21" font-weight="700">Spring Security</text>
+  <text x="716" y="249" fill="#b3b7c8" font-family="Arial,sans-serif" font-size="11">Validates bearer JWT · issuer · signature · audience</text>
+  <path d="M716 273H972" stroke="#a6c4e5" stroke-opacity=".23"/>
+  <rect x="713" y="292" width="262" height="83" rx="11" fill="#18202e" stroke="#82a9d1" stroke-opacity=".35"/>
+  <text x="733" y="318" fill="#9db6d4" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.1">APPLICATION API</text>
+  <text x="733" y="345" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="14" font-weight="700">Protected endpoints</text>
+  <rect x="713" y="393" width="262" height="74" rx="11" fill="#15352f" stroke="#06f481" stroke-opacity=".42"/>
+  <path d="M734 417l8 8 15-17" fill="none" stroke="#06f481" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="770" y="421" fill="#e8f8f0" font-family="Arial,sans-serif" font-size="12" font-weight="700">Authorization decision</text>
+  <text x="733" y="447" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">Local user + permission check</text>
+
+  <!-- Application database -->
+  <text x="1066" y="177" fill="#c6b5ee" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">04 · APPLICATION DATA</text>
+  <ellipse cx="1222" cy="235" rx="54" ry="19" fill="#4a4162" stroke="#c0a5ff" stroke-opacity=".72"/>
+  <path d="M1168 235v58c0 11 24 20 54 20s54-9 54-20v-58M1168 264c0 11 24 20 54 20s54-9 54-20" fill="none" stroke="#c0a5ff" stroke-opacity=".72" stroke-width="2"/>
+  <text x="1222" y="359" text-anchor="middle" fill="#f4f4f8" font-family="Arial,sans-serif" font-size="22" font-weight="700">Application DB</text>
+  <text x="1222" y="385" text-anchor="middle" fill="#b9b2ce" font-family="Arial,sans-serif" font-size="12">Owns users &amp; authorization data</text>
+  <rect x="1070" y="410" width="303" height="57" rx="9" fill="#171725" stroke="#c0a5ff" stroke-opacity=".25"/>
+  <text x="1090" y="434" fill="#c0a5ff" font-family="monospace" font-size="12">email</text>
+  <text x="1141" y="434" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="11">→ local user</text>
+  <text x="1090" y="453" fill="#aeb0c2" font-family="Arial,sans-serif" font-size="10">groups · roles · permissions</text>
+
+  <!-- Connectors -->
+  <path d="M302 250H355Q366 250 366 261" fill="none" stroke="#06f481" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M302 371H355Q366 371 366 360" fill="none" stroke="#02aaa4" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M646 282H689" fill="none" stroke="#06f481" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M999 329H1042" fill="none" stroke="#c0a5ff" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M1042 393H999" fill="none" stroke="#9295b0" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow-soft)"/>
+  <rect x="314" y="192" width="64" height="25" rx="12" fill="#171725" stroke="#06f481" stroke-opacity=".35"/>
+  <text x="346" y="209" text-anchor="middle" fill="#b8f9d8" font-family="Arial,sans-serif" font-size="9" font-weight="700">OIDC</text>
+  <rect x="1006" y="278" width="91" height="27" rx="13" fill="#171725" stroke="#c0a5ff" stroke-opacity=".35"/>
+  <text x="1051" y="296" text-anchor="middle" fill="#d7c9fb" font-family="Arial,sans-serif" font-size="9" font-weight="700">USER LOOKUP</text>
+  <text x="1020" y="414" text-anchor="end" fill="#9fa1b7" font-family="Arial,sans-serif" font-size="8">permissions</text>
+
+  <!-- Policy summary -->
+  <rect x="38" y="544" width="1364" height="91" rx="14" fill="#202033" stroke="#777a95" stroke-opacity=".2"/>
+  <circle cx="73" cy="589" r="13" fill="#06f481" fill-opacity=".13"/>
+  <path d="M67 589l4 4 8-9" fill="none" stroke="#06f481" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="101" y="578" fill="#06f481" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">CLEAR RESPONSIBILITY BOUNDARY</text>
+  <text x="101" y="605" fill="#e4e4ed" font-family="Arial,sans-serif" font-size="15">Keycloak authenticates and issues claims. The application database supplies the user context and permissions used by the API.</text>
+  <rect x="1182" y="569" width="187" height="40" rx="20" fill="#15352f" stroke="#06f481" stroke-opacity=".4"/>
+  <text x="1275" y="594" text-anchor="middle" fill="#8cf8bb" font-family="monospace" font-size="12">ALLOW 200 · DENY 403</text>
+</svg>

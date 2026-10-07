@@ -166,15 +166,20 @@ const toolGroups = [
           <p class="case-dates">2022—2026</p>
         </div>
         <div class="case-heading">
-          <h3>One standard login.<br /><span>Clear trust boundaries.</span></h3>
-          <p>Replaced a custom login in the cyber-range SPA with Keycloak and Spring Security, while the existing application kept ownership of its user records and MFA policy.</p>
+          <h3>One identity.<br /><span>App-owned authorization.</span></h3>
+          <p>Angular and AngularJS use Keycloak for sign-in. Spring Security validates the token, then the application resolves the user and permissions from its own database.</p>
         </div>
-        <ol class="auth-flow" aria-label="Authentication steps">
-          <li><span class="flow-step">01</span><strong>Angular SPA</strong><p>Authorization Code<br />+ PKCE</p></li>
-          <li><span class="flow-step">02</span><strong>Spring Security</strong><p>Exchanges the<br />authorization code</p></li>
-          <li><span class="flow-step">03</span><strong>Keycloak token endpoint</strong><p>Returns JWT with<br />custom claims</p></li>
-          <li><span class="flow-step">04</span><strong>Application database</strong><p><code>email</code> claim resolves<br />the application user</p></li>
-        </ol>
+        <figure class="auth-architecture">
+          <picture>
+            <source media="(max-width: 640px)" srcset={`${base}/keycloak-authz-flow-mobile.svg`} />
+            <img
+              src={`${base}/keycloak-authz-flow.svg`}
+              alt="Angular and AngularJS sign in through Keycloak using OpenID Connect Authorization Code with PKCE. Keycloak returns JWTs with custom claims. Each app sends the access token to Spring Security, which validates it and uses the email claim to load the local user and permissions from the application database before allowing or denying access."
+              loading="lazy"
+            />
+          </picture>
+          <figcaption><span>AUTHENTICATION · KEYCLOAK</span><span>AUTHORIZATION · APPLICATION DATABASE</span></figcaption>
+        </figure>
         <div class="mfa-note"><span class="mfa-signal"></span><p><strong>MFA stays where it belongs.</strong> The original Keycloak authentication flow continues to decide when multi-factor authentication is required.</p></div>
         <div class="case-footer"><span>ANGULAR · KEYCLOAK · SPRING SECURITY</span><span>OIDC · JWT · CUSTOM CLAIMS</span></div>
       </article>
@@ -185,10 +190,10 @@ const toolGroups = [
           <p class="case-dates">2006—2015</p>
         </div>
         <div class="avelco-grid">
-          <h3>Build the framework.<br /><span>Multiply the team’s reach.</span></h3>
-          <p>Created two reusable Java and JavaScript frameworks for healthcare applications, spanning Struts and Struts 2 on the server side, with Dojo and vanilla JavaScript in the browser. Led a team of 12 developers.</p>
+          <h3>Ready-made building blocks.<br /><span>Legacy software, rebuilt.</span></h3>
+          <p>Provided developers with ready-made services and components, and ported a Visual Basic 6 application to Java and JavaScript. The work included Struts and Struts 2 on the server, with Dojo and vanilla JavaScript in the browser. Led a team of 12 developers.</p>
         </div>
-        <div class="avelco-stack"><span>JAVA <strong>Struts → Struts 2</strong></span><span>JAVASCRIPT <strong>Dojo · vanilla JS</strong></span><span>LEADERSHIP <strong>12 developers</strong></span></div>
+        <div class="avelco-stack"><span>PORTING <strong>Visual Basic 6 → Java + JavaScript</strong></span><span>REUSABLE TOOLING <strong>Services · components</strong></span><span>LEADERSHIP <strong>12 developers</strong></span></div>
       </article>
     </section>
 
